@@ -1,0 +1,30 @@
+/*
+Author: CentriaMan
+Date: 25.9.2025
+*/
+body{
+    background-color: beige;
+}
+
+h1{
+    font-size: 70px;
+    color: red;
+}
+
+p{
+    font-size: 15px;
+    color: green;
+}
+
+a{
+    color:aqua
+}
+
+ul{
+    list-style-type:armenian;
+}
+
+ol{
+    list-style-type:lower-roman;
+}
+
