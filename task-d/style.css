@@ -1,0 +1,58 @@
+/*
+Author: Eetu Liukkonen
+Date: 2025-10-03
+*/
+
+body{
+    margin: 0;
+    padding: 0;
+
+    display: flex;  
+    justify-content: center;
+
+    background-color: rgb(207, 207, 207);
+}
+
+
+.itemWrap{
+    margin: 20px;
+    padding: 20px;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 50vw;
+    height: 500px;
+
+    background-color:rgb(255, 255, 255);
+    box-shadow: 5px 5px 25px rgba(0,0,0,0.7);
+}
+
+.itemWrap ul{
+    align-items: start;
+    width: 30vw;
+}
+
+.itemWrap ul li{
+    color:rgb(0, 0, 0);
+    font-size: 150%;
+}
+
+img[alt="Image"]{
+    width: 30vw;
+}
+
+#special-message{
+    font-size: 200%;
+}
+
+h1, h2, h3{
+    font-family: cursive;
+}
+
+a[target]{
+    font-size: 150%;
+    margin-bottom: 2%;
+}
