@@ -89,6 +89,7 @@ body {
   width: 100%;                           /* % */
   border-collapse: collapse;
   font-size: 1rem;                       /* rem */
+  table-layout: fixed;
 }
 
 /* Header cells */
@@ -117,14 +118,13 @@ body {
 */
 .table thead th:nth-child(1),
 .table tbody td:nth-child(1) {
-  width: 40%;
+  width: 25%;
 }
 .table thead th:nth-child(n+2),
 .table tbody td:nth-child(n+2) {
-  width: 15%;
+  width: calc(75%/5);
 }
-
-/* Center the day columns (Monâ€“Thu) */
+/* Center the day columns (Mon–Fri) */
 .table thead th:nth-child(n+2),
 .table tbody td:nth-child(n+2) {
   text-align: center;
