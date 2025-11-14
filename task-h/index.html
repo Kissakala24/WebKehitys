@@ -1,0 +1,136 @@
+<!--
+  Author: Eetu Liukkonen
+  Date: 2025-11-14
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="index.js" defer></script>
+</head>
+<body class="min-h-screen bg-gray-50">
+  
+  <header class="bg-blue-950 text-white py-6 text-center">
+    <h1 class="text-2xl font-bold">Registration Page</h1>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+      
+      <section class="bg-white border rounded-lg p-5 shadow-sm hidden md:block">
+        <h2 class="text-lg font-bold mb-3 border-b pb-2">Student Info</h2>
+        <p class="mb-1"><strong>Name:</strong> Eetu</p>
+        <p><strong>Group:</strong> NTIS24K</p>
+      </section>
+
+      <section class="lg:col-span-2 bg-white border rounded-lg p-5 shadow-sm">
+        <h2 class="text-lg font-bold mb-3 border-b pb-2">Add Information</h2>
+
+        <form id="registrationForm" novalidate>
+          <input type="hidden" id="timestamp">
+
+          <div class="mb-3">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+              <label for="fullName" class="sm:w-28 font-medium">Full Name</label>
+              <input 
+                id="fullName" 
+                type="text" 
+                placeholder="e.g., Ville Heikkiniemi"
+                class="flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+            </div>
+            <p class="text-red-600 text-sm mt-1 sm:ml-32" id="nameError"></p>
+          </div>
+
+          <div class="mb-3">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+              <label for="email" class="sm:w-28 font-medium">Email</label>
+              <input 
+                id="email" 
+                type="email" 
+                placeholder="e.g., ville@centria.fi"
+                class="flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+            </div>
+            <p class="text-red-600 text-sm mt-1 sm:ml-32" id="emailError"></p>
+          </div>
+
+          <div class="mb-3">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+              <label for="phoneNum" class="sm:w-28 font-medium">Phone</label>
+              <input 
+                id="phoneNum" 
+                type="tel" 
+                placeholder="e.g., +358 401234567"
+                class="flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+            </div>
+            <p class="text-red-600 text-sm mt-1 sm:ml-32" id="telephoneError"></p>
+          </div>
+
+          <div class="mb-3">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+              <label for="birthdate" class="sm:w-28 font-medium">Birth Date</label>
+              <input 
+                id="birthdate" 
+                type="date"
+                class="flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+            </div>
+            <p class="text-red-600 text-sm mt-1 sm:ml-32" id="birthdateError"></p>
+          </div>
+
+          <div class="mb-4">
+            <div class="flex items-start gap-2 sm:ml-32">
+              <input 
+                id="terms" 
+                type="checkbox"
+                class="mt-1"
+              >
+              <label for="terms" class="text-sm">I accept the terms and conditions</label>
+            </div>
+            <p class="text-red-600 text-sm mt-1 sm:ml-32" id="termsError"></p>
+          </div>
+
+          <div class="flex gap-2 sm:ml-32">
+            <button 
+              type="submit" 
+              class="px-5 py-2 bg-blue-950 text-white rounded hover:bg-blue-700"
+            >
+              Submit
+            </button>
+            <button 
+              type="reset" 
+              class="px-5 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            >
+              Clear
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="bg-white border rounded-lg p-4 shadow-sm overflow-x-auto">
+      <h2 class="text-lg font-bold mb-3">Submissions</h2>
+      <table class="w-full text-sm" id="timetable">
+        <thead>
+          <tr class="bg-blue-950 text-white">
+            <th class="text-left px-3 py-2">Timestamp</th>
+            <th class="text-left px-3 py-2">Name</th>
+            <th class="text-left px-3 py-2">Email</th>
+            <th class="text-left px-3 py-2">Phone</th>
+            <th class="text-left px-3 py-2">Birth Date</th>
+            <th class="text-left px-3 py-2">Terms</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html>
