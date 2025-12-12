@@ -1,3 +1,8 @@
+/*
+author: Eetu Liukkonen
+date: 2025-12-12
+*/
+
 // Scroll progress indicator
 window.addEventListener('scroll', () => {
     const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
