@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saunamme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <div class="wrapper">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="catalog.html">Saunat</a></li>
+                    <li><a href="order.html" class="active">Varaa Sauna</a></li>
+                </ul>
+            </nav>
+
+            <header>
+                <h1>Varaa Sauna</h1>
+                <p class="tagline">Täytä lomake ja varaa saunasi jo tänään</p>
+            </header>
+
+            <main>
+                <section class="intro-section">
+                    <h2>Miten varaus toimii?</h2>
+                    <p>Täytä alla oleva varauslomake huolellisesti. Saat meiltä vahvistuksen sähköpostitse 24 tunnin kuluessa. Vuokra-aika on 4 tuntia, ja hinnat vaihtelevat saunan mukaan. Kaikki saunamme ovat puulämmitteisiä ja sijaitsevat rauhallisissa luonnonympäristöissä.</p>
+                    <p>Varauksen vahvistuttua saat tarkat ohjeet saapumisesta ja avaimien noudosta.</p>
+                </section>
+
+                <form class="order-form" action="thanks.html" method="post">
+                    <fieldset>
+                        <legend>Asiakastiedot</legend>
+                        
+                        <div class="form-group">
+                            <label for="fullname">Koko nimi <span class="required">*</span></label>
+                            <input type="text" id="fullname" name="fullname" required placeholder="Etunimi Sukunimi">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Sähköposti <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="nimi@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Puhelinnumero <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-]+" placeholder="040 123 4567">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Vuokratiedot</legend>
+                        
+                        <div class="form-group">
+                            <label for="sauna">Valitse sauna <span class="required">*</span></label>
+                            <select id="sauna" name="sauna" required>
+                                <option value="">-- Valitse sauna --</option>
+                                <option value="savusauna">Perinteinen Savusauna (80€)</option>
+                                <option value="jarvensauna">Järvensauna (100€)</option>
+                                <option value="tynnyrisauna">Tynnyrisauna (120€)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-date">Aloituspäivä <span class="required">*</span></label>
+                                <input type="date" id="start-date" name="start-date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantity">Henkilömäärä <span class="required">*</span></label>
+                                <input type="number" id="quantity" name="quantity" required min="1" max="12" value="4">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Toivottu aloitusaika <span class="required">*</span></label>
+                            <select id="time" name="time" required>
+                                <option value="">-- Valitse aika --</option>
+                                <option value="morning">Aamupäivä (9:00-13:00)</option>
+                                <option value="afternoon">Iltapäivä (13:00-17:00)</option>
+                                <option value="evening">Ilta (17:00-21:00)</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Lisätiedot</legend>
+                        
+                        <div class="form-group">
+                            <label for="message">Viesti tai erityistoiveet</label>
+                            <textarea id="message" name="message" placeholder="Kerro meille mahdollisista erityistoiveista tai kysymyksistä..."></textarea>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Hyväksyn vuokrausehdot ja tietosuojakäytännön <span class="required">*</span></label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Haluan vastaanottaa uutiskirjeen ja erikoistarjouksia</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="submit-button">Lähetä varaus</button>
+                </form>
+            </main>
+
+            <footer>
+                <p>Ota yhteyttä: info@saunavuokraus.fi | Puh: 040 123 4567</p>
+                <p>&copy; 2025 Saunojen Vuokraus. Kaikki oikeudet pidätetään.</p>
+            </footer>
+        </div>
+    </div>
+    <script src="order.js"></script>
+</body>
+</html>

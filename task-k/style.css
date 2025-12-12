@@ -1,0 +1,637 @@
+/* Yleiset asetukset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: #554132;
+    color: #2C1810;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(139, 111, 71, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(160, 130, 109, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(107, 84, 66, 0.1) 0%, transparent 50%);
+    animation: backgroundShift 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+@keyframes backgroundShift {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(-20px, 20px); }
+    66% { transform: translate(20px, -20px); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(139, 90, 43, 0.6), rgba(210, 180, 140, 0.6));
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    background-color: rgba(122, 92, 71, 0.95);
+    padding: 40px;
+    border: 1px solid rgba(139, 111, 71, 0.5);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(255, 237, 213, 0.1);
+    border-radius: 8px;
+}
+
+
+nav {
+    background: rgba(107, 84, 66, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    border: 1px solid rgba(139, 111, 71, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #E8D5C4;
+    text-decoration: none;
+    font-size: 1.05em;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    background: rgba(139, 90, 43, 0.3);
+    color: #FFF8E7;
+}
+
+
+header {
+    padding: 40px 0 20px 0;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+h1 {
+    font-size: 2.8em;
+    color: #FFF8E7;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+
+.tagline {
+    font-size: 1.1em;
+    color: #E8D5C4;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+
+main {
+    margin-top: 40px;
+}
+
+
+.intro-section {
+    background: rgba(139, 90, 43, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(139, 111, 71, 0.4);
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.intro-section h2 {
+    color: #FFF8E7;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.intro-section p {
+    color: #E8D5C4;
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+
+.intro-text {
+    background: rgba(107, 84, 66, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid rgba(139, 111, 71, 0.3);
+    margin-bottom: 40px;
+}
+
+.intro-text h2 {
+    color: #FFF8E7;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.intro-text p {
+    color: #E8D5C4;
+    font-size: 1.05em;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+
+.special-offer {
+    background: rgba(139, 90, 43, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 30px 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(139, 111, 71, 0.5);
+    margin: 30px 0;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    transition: all 0.3s ease;
+}
+
+.special-offer:hover {
+    background: rgba(139, 90, 43, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.special-offer h2 {
+    color: #FFF8E7;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.special-offer p {
+    color: #E8D5C4;
+    font-size: 1.05em;
+    margin-bottom: 10px;
+}
+
+
+.price {
+    font-size: 1.6em;
+    color: #FFEDD5;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.special-offer .price {
+    font-size: 2.2em;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+
+.benefits {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.benefits h2 {
+    color: #FFF8E7;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.benefit-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.benefit-item {
+    background: rgba(139, 111, 71, 0.15);
+    backdrop-filter: blur(5px);
+    padding: 30px 25px;
+    border-radius: 6px;
+    border: 1px solid rgba(139, 111, 71, 0.3);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: rgba(139, 111, 71, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.benefit-item strong {
+    color: #FFEDD5;
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1.15em;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+.benefit-item p {
+    color: #E8D5C4;
+    font-size: 0.95em;
+}
+
+
+.sauna-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.sauna-card {
+    background: rgba(210, 180, 140, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    border: 1px solid rgba(139, 111, 71, 0.4);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.sauna-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sauna-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    border-color: rgba(139, 111, 71, 0.6);
+}
+
+.sauna-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, rgba(139, 111, 71, 0.3), rgba(107, 84, 66, 0.3));
+    transition: transform 0.4s ease;
+}
+
+.sauna-card:hover .sauna-image {
+    transform: scale(1.05);
+}
+
+.sauna-info {
+    padding: 25px;
+}
+
+.sauna-card h3 {
+    color: #FFF8E7;
+    font-size: 1.6em;
+    margin-bottom: 12px;
+    font-weight: normal;
+}
+
+.sauna-card p {
+    color: #E8D5C4;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.capacity {
+    font-weight: normal;
+    color: #D4B896;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-bottom: 12px;
+}
+
+.features {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.features li {
+    color: #E8D5C4;
+    font-size: 0.9em;
+    margin-bottom: 6px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #FFEDD5;
+}
+
+
+
+.cta-section {
+    text-align: center;
+    margin: 50px 0 30px 0;
+}
+
+.cta-button {
+    background: rgba(139, 69, 19, 0.5);
+    color: #FFF8E7;
+    padding: 12px 28px;
+    font-size: 1em;
+    border: 1px solid rgba(139, 90, 43, 0.6);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    backdrop-filter: blur(5px);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.cta-section .cta-button {
+    padding: 16px 45px;
+    font-size: 1.15em;
+    margin: 0 10px 10px 10px;
+}
+
+.sauna-card .cta-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.cta-button:hover {
+    background: rgba(139, 69, 19, 0.7);
+    border-color: rgba(139, 90, 43, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.cta-button.secondary {
+    background: rgba(107, 84, 66, 0.4);
+}
+
+.cta-button.secondary:hover {
+    background: rgba(107, 84, 66, 0.6);
+}
+
+/* Form styles */
+.order-form {
+    background: rgba(107, 84, 66, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(139, 111, 71, 0.3);
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+fieldset {
+    border: 1px solid rgba(139, 111, 71, 0.4);
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    background: rgba(139, 111, 71, 0.1);
+}
+
+legend {
+    color: #FFF8E7;
+    font-size: 1.3em;
+    padding: 0 15px;
+    font-weight: normal;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #E8D5C4;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+label .required {
+    color: #FFEDD5;
+    margin-left: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 248, 231, 0.9);
+    border: 1px solid rgba(139, 111, 71, 0.5);
+    border-radius: 4px;
+    font-family: 'Georgia', serif;
+    font-size: 1em;
+    color: #2C1810;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: rgba(139, 90, 43, 0.8);
+    background: rgba(255, 248, 231, 1);
+    box-shadow: 0 0 8px rgba(139, 90, 43, 0.3);
+}
+
+input:invalid:not(:focus):not(:placeholder-shown),
+select:invalid:not(:focus),
+textarea:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: rgba(180, 50, 50, 0.6);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%232C1810' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 35px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-top: 4px;
+    cursor: pointer;
+    accent-color: #8B5A2B;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+    flex: 1;
+}
+
+.submit-button {
+    background: rgba(139, 69, 19, 0.5);
+    color: #FFF8E7;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border: 1px solid rgba(139, 90, 43, 0.6);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background: rgba(139, 69, 19, 0.7);
+    border-color: rgba(139, 90, 43, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #D4B896;
+    margin-top: 50px;
+    border-top: 1px solid rgba(139, 111, 71, 0.3);
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+
+    .tagline {
+        font-size: 1em;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 0.95em;
+        padding: 6px 12px;
+    }
+
+    .sauna-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-section,
+    .intro-text,
+    .special-offer {
+        padding: 20px;
+    }
+
+    .benefit-list {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-section .cta-button {
+        display: block;
+        margin: 10px 0;
+        padding: 14px 35px;
+    }
+
+    .order-form {
+        padding: 25px 20px;
+    }
+
+    fieldset {
+        padding: 20px 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-button {
+        padding: 12px 30px;
+    }
+}
