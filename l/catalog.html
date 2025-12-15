@@ -1,0 +1,125 @@
+<!--
+    Author: Eetu Liukkonen
+    Date: 2025-12-12
+-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saunamme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <div class="wrapper">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="catalog.html" class="active">Saunat</a></li>
+                    <li><a href="order.html">Varaa Sauna</a></li>
+                </ul>
+            </nav>
+
+            <header>
+                <h1>Saunamme</h1>
+                <p class="tagline">Valitse sinulle sopiva saunakokemus</p>
+            </header>
+
+            <main>
+                <section class="intro-section">
+                    <p>Tarjoamme kolme erilaista saunavaihtoehtoa eri tarpeisiin. Kaikki saunat ovat puulämmitteisiä ja sijaitsevat kauniissa luonnonympäristöissä. Vuokra-aika on 4 tuntia, ja hintaan sisältyy puut sekä kaikki tarvittavat välineet.</p>
+                </section>
+
+                <div class="sauna-grid">
+                    <article class="sauna-card">
+                        <img src="img/savusauna.avif" alt="Perinteinen savusauna" class="sauna-image">
+                        <div class="sauna-info">
+                            <h3>Perinteinen Savusauna</h3>
+                            <p>Aito savusaunaelämys perinteisissä puitteissa. Puulämmitteinen sauna perinteisillä puupenkkeillä ja aidon savun tuoksulla.</p>
+                            <p class="capacity">Kapasiteetti: 6-8 henkilöä</p>
+                            <ul class="features">
+                                <li>Puulämmitteinen kiuas</li>
+                                <li>Perinteiset puupenkit</li>
+                                <li>Pukuhuone ja pesuhuone</li>
+                                <li>Terassi järven rannalla</li>
+                            </ul>
+                            <p class="price">80€ / 4h</p>
+                            <a href="order.html" class="cta-button">Varaa nyt</a>
+                        </div>
+                    </article>
+
+                    <article class="sauna-card">
+                        <img src="img/rantasauna.jpg" alt="rantasauna" class="sauna-image">
+                        <div class="sauna-info">
+                            <h3>Järvensauna</h3>
+                            <p>Sauna aivan järven rannalla. Täydellinen kesäkokemus tai talviuintiin. Laituri ja uimapaikka heti saunan vieressä.</p>
+                            <p class="capacity">Kapasiteetti: 4-6 henkilöä</p>
+                            <ul class="features">
+                                <li>Suora pääsy järveen</li>
+                                <li>Laituri ja uimapaikka</li>
+                                <li>Avanto talvikäyttöön</li>
+                                <li>Katos ja grilli</li>
+                            </ul>
+                            <p class="price">100€ / 4h</p>
+                            <a href="order.html" class="cta-button">Varaa nyt</a>
+                        </div>
+                    </article>
+
+                    <article class="sauna-card">
+                        <img src="img/tynnyrisauna.jpg" alt="Tynnyrisauna" class="sauna-image">
+                        <div class="sauna-info">
+                            <h3>Tynnyrisauna</h3>
+                            <p>Tunnelmallinen tynnyrisauna nuotiolla ja terassilla. Sopii hyvin isommille ryhmille ja juhliin.</p>
+                            <p class="capacity">Kapasiteetti: 8-12 henkilöä</p>
+                            <ul class="features">
+                                <li>Tilava tynnyrisauna</li>
+                                <li>Nuotiopaikka</li>
+                                <li>Iso terassi</li>
+                                <li>Sopii juhliin</li>
+                            </ul>
+                            <p class="price">120€ / 4h</p>
+                            <a href="order.html" class="cta-button">Varaa nyt</a>
+                        </div>
+                    </article>
+                </div>
+            </main>
+
+            <footer>
+                <p>Ota yhteyttä: info@saunavuokraus.fi | Puh: 040 123 4567</p>
+                <p>&copy; 2025 Saunojen Vuokraus. Kaikki oikeudet pidätetään.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.sauna-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

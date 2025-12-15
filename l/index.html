@@ -1,0 +1,111 @@
+<!--
+    Author: Eetu Liukkonen
+    Date: 2025-12-12
+-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saunamme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <div class="wrapper">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Etusivu</a></li>
+                    <li><a href="catalog.html">Saunat</a></li>
+                    <li><a href="order.html">Varaa Sauna</a></li>
+                </ul>
+            </nav>
+
+            <header>
+                <h1>Saunojen Vuokraus</h1>
+                <p class="tagline">Autenttinen puusaunakokemus Suomen luonnossa</p>
+            </header>
+
+            <div class="special-offer">
+                <h2>Talvitarjous</h2>
+                <p>Varaa savusauna tammikuussa ja saat 20% alennuksen!</p>
+                <p class="price">Vain 64€ / 4h</p>
+                <p>Tarjous voimassa 31.1.2025 asti</p>
+            </div>
+
+            <main>
+                <section class="intro-text">
+                    <h2>Tervetuloa vuokraamaan saunojamme</h2>
+                    <p>Tarjoamme ainutlaatuisia saunakokemuksia rauhallisissa luonnonympäristöissä. Kaikki saunamme ovat perinteisesti puulämmitteisiä, ja ne sijaitsevat kauniilla paikoilla järvien ja metsien äärellä.</p>
+                    <p>Saunominen on suomalaisen kulttuurin ydin, ja haluamme tarjota sinulle autenttisen kokemuksen, jossa voit rentoutua ja nauttia luonnon rauhasta. Saunamme sopivat niin perheille, ystäväporukalle kuin yritystapahtumiinkin.</p>
+                </section>
+
+                <div class="benefits">
+                    <h2>Miksi valita meidät?</h2>
+                    <div class="benefit-list">
+                        <div class="benefit-item">
+                            <strong>Puulämmitteiset</strong>
+                            <p>Kaikki saunamme lämmitetään perinteisesti puulla autenttisen kokemuksen takaamiseksi.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Upeat sijainnit</strong>
+                            <p>Rauhallisissa maisemissa, etäällä kaupungin hälinästä, järvien ja metsien äärellä.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Helppo varaus</strong>
+                            <p>Yksinkertainen varausprosessi verkossa. Saat vahvistuksen 24 tunnin kuluessa.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Puhtaus</strong>
+                            <p>Kaikki saunat puhdistetaan ja huolletaan huolellisesti jokaisen käytön jälkeen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <a href="catalog.html" class="cta-button">Tutustu saunoihimme</a>
+                    <a href="order.html" class="cta-button secondary">Varaa heti</a>
+                </div>
+            </main>
+
+            <footer>
+                <p>Ota yhteyttä: info@saunavuokraus.fi | Puh: 040 123 4567</p>
+                <p>&copy; 2025 Saunojen Vuokraus. Kaikki oikeudet pidätetään.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
